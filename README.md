@@ -15,6 +15,7 @@ This paper has been accepted at IEEE International Conference on Image Processin
 5. [Usage](#usage)
    - [Setup](#setup)
    - [Inference on Custom Samples](#inference-on-custom-samples)
+   - [Inference through Huggingface Spaces](#inference-through-huggingface-spaces)
 6. [Citation](#citation)
 
 ## Motivation
@@ -90,6 +91,10 @@ Outputs
 Example heatmap:
   
 ![heatmap](heatmaps/heatmap_198_Moderate_NPDR.jpg)
+
+### Inference through Huggingface Spaces
+
+For those of you who prefer user interface over code, access the link to huggingface spaces [[Demo]](https://huggingface.co/spaces/tejacherukuri/Guided-Context-Gating)
 
 
 ### Citation
