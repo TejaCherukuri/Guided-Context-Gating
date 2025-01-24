@@ -5,7 +5,7 @@ _An attention mechanism designed to suit the identification of micro and macro l
 This paper has been accepted at IEEE International Conference on Image Processing (ICIP), 2024.
 
 
-[[Paper]](https://arxiv.org/abs/2406.13126)[[Dataset]](https://zenodo.org/records/4647952)[[Demo]](https://huggingface.co/spaces/tejacherukuri/retinal-lesion-detector)
+[[IEEE Xplore]](https://ieeexplore.ieee.org/document/10647604)[[ArXiv]](https://arxiv.org/abs/2406.13126)[[Demo]](https://huggingface.co/spaces/tejacherukuri/retinal-lesion-detector)[[Dataset]](https://zenodo.org/records/4647952)
 
 ## Table of Contents
 1. [Motivation](#motivation)
