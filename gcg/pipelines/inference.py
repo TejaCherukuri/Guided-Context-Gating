@@ -16,7 +16,7 @@ def predict(img_paths:List[str]):
     Output: Predictions List and Generates heatmaps
     '''
     try:
-        predictions_list = []
+        predictions = {}
         # Step 1: Building the model
         model = build_model(input_shape=config.IMAGE_SIZE, num_classes=config.NUM_CLASSES)
 
@@ -39,7 +39,7 @@ def predict(img_paths:List[str]):
             predicted_class = np.argmax(pred, axis=1)[0]  # Get class index
             
             logging.info(f"Prediction: {le.classes_[predicted_class]}, Path: {img_name}")
-            predictions_list.append(le.classes_[predicted_class])
+            predictions[img_name] = le.classes_[predicted_class].item()
             
             # Step 6: Generating heatmap for the image
             logging.info("Generating the heatmap using GradCAM++")
@@ -49,10 +49,11 @@ def predict(img_paths:List[str]):
             heatmap_img = config.HEATMAPS_SAVE_PATH + f'/heatmap_{img_name}'
             show_GradCAM(resized_img, heatmap_plus, save_path=heatmap_img)
 
-        return predictions_list
+        return predictions
 
     except Exception as e:
         raise CustomException(e, sys)
     
 if __name__=='__main__':
-    predict(config.TEST_IMAGES)
+    predictions = predict(config.TEST_IMAGES)
+    print(predictions)

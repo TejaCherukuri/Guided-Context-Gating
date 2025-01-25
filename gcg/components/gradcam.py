@@ -77,8 +77,8 @@ def grad_cam_plus(model, img,
                 conv_output, predictions = heatmap_model(img_tensor)
                 if category_id is None:
                     category_id = np.argmax(predictions[0])
-                if label_name is not None:
-                    print(label_name[category_id])
+                # if label_name is not None:
+                #     # print(label_name[category_id])
                 output = predictions[:, category_id]
                 conv_first_grad = gtape3.gradient(output, conv_output)
             conv_second_grad = gtape2.gradient(conv_first_grad, conv_output)
