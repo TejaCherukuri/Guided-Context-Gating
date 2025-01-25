@@ -12,9 +12,9 @@ def get_requirements(filepath:str) -> List[str]:
     return requirements
 
 setup(
-    name='Guided Context Gating Attention',
+    name='gcg',
     version='0.1.0',
-    description='Diabetic Retinopathy Classification based on Attention',
+    description='Diabetic Retinopathy Classification based on Guided Context Gating Attention',
     author='Teja Cherukuri',
     author_email='tejakrishnacherukuri@gmail.com',
     packages=find_packages(),
