@@ -6,8 +6,7 @@ LABELENCODER_FILE="labelencoder.pkl"
 # Files should be loaded from Huggingface
 FROM_HF=True
 
-# Get the absolute path to the root directory (where gcg, test_images, etc. are located)
-ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT_DIR = os.getcwd()
 
 # Dataset details
 DATA_PATH = "/Users/tejacherukuri/TReNDS/MyResearch/Datasets/Zenodo-DR7"
