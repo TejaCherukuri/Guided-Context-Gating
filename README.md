@@ -48,17 +48,17 @@ Our approach consists of three key sub-blocks:
 
 ## Usage
 ### Setup
-1. Installing the project:
+1. Creating a Virtual Environment:
+   - The command `python -m venv gcg_venv` works the same on **Windows**, **macOS**, and **Linux**.
+
+2. Activating the Virtual Environment:
+   - On **macOS/Linux**, use `source gcg_venv/bin/activate`.
+   - On **Windows**, use `gcg_venv\Scripts\activate`.
+     
+3. Installing the project:
 ```bash
 pip install git+https://github.com/TejaCherukuri/Guided-Context-Gating.git
 ```
-2. Creating a Virtual Environment:
-   - The command `python -m venv gcg_venv` works the same on **Windows**, **macOS**, and **Linux**.
-
-3. Activating the Virtual Environment:
-   - On **macOS/Linux**, use `source gcg_venv/bin/activate`.
-   - On **Windows**, use `gcg_venv\Scripts\activate`.
-
 4. Install all the necessary dependencies:
    
    (Optional if using `pip install git+<url>`, as dependencies are installed automatically.)
@@ -81,8 +81,8 @@ image_paths = [
 ]
 
 # Get predictions
-predictions_list = predict(image_paths)
-print(predictions_list)
+predictions = predict(image_paths)
+print(predictions)
 ```
 Outputs
 
