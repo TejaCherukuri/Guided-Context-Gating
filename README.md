@@ -17,6 +17,7 @@ This paper has been accepted at IEEE International Conference on Image Processin
    - [Inference on Custom Samples](#inference-on-custom-samples)
    - [Inference through Huggingface Spaces](#inference-through-huggingface-spaces)
 6. [Citation](#citation)
+7. [License](#license)
 
 ## Motivation
 Diabetic Retinopathy (DR) grading is a highly challenging task due to the complexity of lesion variability and their contribution to different severity grades. Lesions such as Microaneurysms, Exudates, Hemorrhages, and Cotton Wool Spots vary significantly in size, shape, and appearance, often misleading the classification process. **Some lesions are barely visible, while others are prominent, yet every minor lesion plays a critical role in determining the correct severity grade.** Misclassifying even a single lesion can lead to incorrect grading, as the distinction between severity grades is often subtle and highly dependent on lesion characteristics.
@@ -99,7 +100,7 @@ Example heatmap:
 For those of you who prefer user interface over code, access the link to huggingface spaces [[Demo]](https://huggingface.co/spaces/tejacherukuri/Guided-Context-Gating)
 
 
-### Citation
+### License
 If you find GCG useful for your research and applications, please cite using this BibTeX:
 ```bibtex
 @article{cherukuri2024guided,
@@ -109,3 +110,7 @@ If you find GCG useful for your research and applications, please cite using thi
   year={2024}
 }
 ```
+
+### Citation
+
+This project is licensed under the MIT License. See `LICENSE` for details.
