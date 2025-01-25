@@ -59,6 +59,8 @@ pip install git+https://github.com/TejaCherukuri/Guided-Context-Gating.git
    - On **Windows**, use `gcg_venv\Scripts\activate`.
 
 4. Install all the necessary dependencies:
+   
+   (Optional if using `pip install git+<url>`, as dependencies are installed automatically.)
 ```bash
 pip install -r requirements.txt
 ```
