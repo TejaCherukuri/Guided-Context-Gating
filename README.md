@@ -100,7 +100,7 @@ Example heatmap:
 For those of you who prefer user interface over code, access the link to huggingface spaces [[Demo]](https://huggingface.co/spaces/tejacherukuri/Guided-Context-Gating)
 
 
-### License
+### Citation
 If you find GCG useful for your research and applications, please cite using this BibTeX:
 ```bibtex
 @article{cherukuri2024guided,
@@ -111,6 +111,6 @@ If you find GCG useful for your research and applications, please cite using thi
 }
 ```
 
-### Citation
+### License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
