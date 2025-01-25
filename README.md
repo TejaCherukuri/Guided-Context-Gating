@@ -49,7 +49,7 @@ Our approach consists of three key sub-blocks:
 ### Setup
 1. Installing the project:
 ```bash
-pip install git+https://github.com/TejaCherukuri/Retinal-Lesion-Detector.git
+pip install git+https://github.com/TejaCherukuri/Guided-Context-Gating.git
 ```
 2. Creating a Virtual Environment:
    - The command `python -m venv gcg_venv` works the same on **Windows**, **macOS**, and **Linux**.
