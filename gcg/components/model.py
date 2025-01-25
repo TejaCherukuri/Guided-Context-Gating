@@ -281,12 +281,12 @@ def train_model(model, X_train, X_test, y_train, y_test):
 
     try:
         # Define the necessary callbacks
-        checkpoint = ModelCheckpoint(config.model_path, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
+        checkpoint = ModelCheckpoint(config.MODEL_SAVE_PATH, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
 
         callbacks = [checkpoint]
 
         logging.info(f"Training network for {config.EPOCHS} epochs...")
-        hist = model.fit(X_train, y_train, batch_size=config.batch_size,
+        hist = model.fit(X_train, y_train, batch_size=config.BATCH_SIZE,
                         validation_data=(X_test, y_test),
                         epochs=config.EPOCHS, callbacks=callbacks)
         

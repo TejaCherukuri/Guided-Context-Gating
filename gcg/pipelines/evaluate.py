@@ -9,14 +9,14 @@ from gcg import config
 
 logging.info("Initiated evaluation pipeline")
 
-logging.info(f"Loading data from {config.data_path}")
-X_train, X_test, y_train, y_test = load_data(config.data_path, config.image_size)
+logging.info(f"Loading data from {config.DATA_PATH}")
+X_train, X_test, y_train, y_test = load_data(config.DATA_PATH, config.IMAGE_SIZE)
 
 logging.info("Building model...")
-model = build_model(input_shape=config.image_size, num_classes=7)
+model = build_model(input_shape=config.IMAGE_SIZE, num_classes=config.NUM_CLASSES)
 
 logging.info("Loading the model checkpoint...")
-model = load_from_checkpoint(model, config.model_path)
+model = load_from_checkpoint(model, config.FROM_HF, config.MODEL_SAVE_PATH)
 
 logging.info("Evaluating the model on test set...")
 evaluate_model(model, X_test, y_test)

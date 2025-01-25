@@ -1,26 +1,34 @@
 import os
 
+REPO_ID="tejacherukuri/guided-context-gating"
+WEIGHT_FILE="gcg.weights.keras"
+LABELENCODER_FILE="labelencoder.pkl"
+# Files should be loaded from Huggingface
+FROM_HF=True
+
 # Get the absolute path to the root directory (where gcg, test_images, etc. are located)
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Dataset details
-data_path = "/Users/tejacherukuri/TReNDS/MyResearch/Datasets/Zenodo-DR7"
-labels = ['No DR', 'Mild NPDR', 'Moderate NPDR', 'Severe NPDR', 'Very Severe NPDR', 'PDR', 'Advanced PDR']
-image_size = (512,512,3)
-num_classes = 7
-labelencoder_save_path = os.path.join(ROOT_DIR, 'saves', 'labelencoder.pkl')
-heatmaps_save_path = os.path.join(ROOT_DIR, 'heatmaps')
+DATA_PATH = "/Users/tejacherukuri/TReNDS/MyResearch/Datasets/Zenodo-DR7"
+LABELS = ['No DR', 'Mild NPDR', 'Moderate NPDR', 'Severe NPDR', 'Very Severe NPDR', 'PDR', 'Advanced PDR']
+IMAGE_SIZE = (512,512,3)
+NUM_CLASSES = 7
 
 # Training Parameters
 EPOCHS = 100
-batch_size = 32
-model_path = os.path.join(ROOT_DIR, 'saves', 'gcg.weights.keras')
+BATCH_SIZE = 32
+
+# Saving to local when running
+MODEL_SAVE_PATH = os.path.join(ROOT_DIR, 'saves', 'gcg.weights.keras')  
+LABELENCODER_SAVE_PATH = os.path.join(ROOT_DIR, 'saves', 'labelencoder.pkl')
+HEATMAPS_SAVE_PATH = os.path.join(ROOT_DIR, 'heatmaps')      
 
 # Attention Layer to get features
-gcg_layer_name = 'attention_gate'
+GCG_LAYER_OUTPUT = 'attention_gate'
 
 #Inference
-test_images = [
+TEST_IMAGES = [
     os.path.join(ROOT_DIR, 'test_images', '184_No_DR.jpg'),
     os.path.join(ROOT_DIR, 'test_images', '198_Moderate_NPDR.jpg'),
     os.path.join(ROOT_DIR, 'test_images', '440_Severe_NPDR.jpg'),

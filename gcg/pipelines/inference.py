@@ -10,7 +10,7 @@ from gcg import config
 from gcg.utils import logging, CustomException, load_from_checkpoint, load_object
 from gcg.components import build_model, preprocess_image, grad_cam_plus, show_GradCAM
 
-def predict(img_paths:List):
+def predict(img_paths:List[str]):
     '''
     Inputs: List of image paths
     Output: Predictions List and Generates heatmaps
@@ -18,20 +18,19 @@ def predict(img_paths:List):
     try:
         predictions_list = []
         # Step 1: Building the model
-        model = build_model(input_shape=config.image_size, num_classes=config.num_classes)
+        model = build_model(input_shape=config.IMAGE_SIZE, num_classes=config.NUM_CLASSES)
 
         # Step 2: Loading the model from checkpoint     
-        logging.info("Loading the model from checkpoint...")
-        model = load_from_checkpoint(model, config.model_path)
+        model = load_from_checkpoint(model, config.MODEL_SAVE_PATH, config.FROM_HF)
 
         # Step 3: Loading the label encoder to decode indices
-        le = load_object(config.labelencoder_save_path)
+        le = load_object(config.LABELENCODER_SAVE_PATH, config.FROM_HF)
 
         for img_path in img_paths:
             # Step 4: Read and preprocess the image
             img_name = img_path.split("/")[-1]
 
-            resized_img = preprocess_image(img_path, config.image_size)
+            resized_img = preprocess_image(img_path, config.IMAGE_SIZE)
             img_array = np.expand_dims(resized_img, axis=0)
             
             # Step 5: Inference on the model
@@ -44,10 +43,10 @@ def predict(img_paths:List):
             
             # Step 6: Generating heatmap for the image
             logging.info("Generating the heatmap using GradCAM++")
-            heatmap_plus = grad_cam_plus(model, resized_img, config.gcg_layer_name, label_name=config.labels, category_id=predicted_class)
+            heatmap_plus = grad_cam_plus(model, resized_img, config.GCG_LAYER_OUTPUT, label_name=config.LABELS, category_id=predicted_class)
 
-            os.makedirs(config.heatmaps_save_path, exist_ok=True) 
-            heatmap_img = config.heatmaps_save_path + f'/heatmap_{img_name}'
+            os.makedirs(config.HEATMAPS_SAVE_PATH, exist_ok=True) 
+            heatmap_img = config.HEATMAPS_SAVE_PATH + f'/heatmap_{img_name}'
             show_GradCAM(resized_img, heatmap_plus, save_path=heatmap_img)
 
         return predictions_list
@@ -56,5 +55,4 @@ def predict(img_paths:List):
         raise CustomException(e, sys)
     
 if __name__=='__main__':
-    predictions_list = predict(config.test_images)
-    print(predictions_list)
+    predict(config.TEST_IMAGES)

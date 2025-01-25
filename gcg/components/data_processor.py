@@ -21,7 +21,7 @@ def preprocess_image(img_path, image_size):
 # Data Loading
 def load_data(data_path, image_size):
     try:
-        subfolders = config.labels
+        subfolders = config.LABELS
         logging.info("Dataset Loading...")
 
         img_data_list=[]
@@ -50,7 +50,7 @@ def load_data(data_path, image_size):
         labels = to_categorical(labels)
 
         # Saving the label encoder object for use during inference
-        save_object(config.labelencoder_save_path, le)
+        save_object(config.LABELENCODER_SAVE_PATH, le)
 
         data = np.array(img_data_list)
 
